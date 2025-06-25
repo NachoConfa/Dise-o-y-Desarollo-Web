@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Botonera de Sonido</title>
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    .botonera {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      padding: 2rem;
+    }
+    .botonera button {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 12px;
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .botonera button:hover {
+      background-color: #555;
+    }
+    .reproductor {
+      display: none;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="Portfolio Tp3.html#inicio">Inicio</a></li>
+        <li><a href="Portfolio Tp3.html#sobremi">Sobre mí</a></li>
+        <li><a href="Portfolio Tp3.html#proyectos">Proyectos</a></li>
+        <li><a href="Portfolio Tp3.html#habilidades">Habilidades</a></li>
+        <li><a href="Portfolio Tp3.html#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <audio id="sonido1" src="Sonidos/sonido1.mp3"></audio>
+  <audio id="sonido2" src="Sonidos/sonido2.mp3"></audio>
+  <audio id="sonido3" src="Sonidos/sonido3.mp3"></audio>
+  
+  <div class="botonera">
+    <button onclick="reproducir('sonido1')">POP</button>
+    <button onclick="reproducir('sonido2')">Electronic</button>
+    <button onclick="reproducir('sonido3')">Chill</button>
+  </div>
+
+  <div class="reproductor" id="reproductorContainer">
+    <audio id="reproductor" controls style="width: 90%; max-width: 600px;"></audio>
+  </div>
+
+  <script>
+    const reproductor = document.getElementById("reproductor");
+    const reproductorContainer = document.getElementById("reproductorContainer");
+
+    function reproducir(id) {
+      const sonido = document.getElementById(id);
+      reproductor.src = sonido.src;
+      reproductorContainer.style.display = 'flex';
+      reproductor.play();
+    }
+  </script>
+</body>
+</html>

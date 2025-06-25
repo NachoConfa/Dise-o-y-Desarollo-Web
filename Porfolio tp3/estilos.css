@@ -1,0 +1,150 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  background-color: #1c1c1c;
+}
+
+.fondo-personalizado {
+  background-image: url('Imagenes/43543.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+}
+
+nav a {
+  color: #f0f0f0;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #aaa;
+}
+
+main {
+  padding: 2rem;
+}
+
+section {
+  margin-bottom: 4rem;
+}
+
+.bienvenida {
+  text-align: center;
+  padding: 4rem 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+.contenedor-bienvenida {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 900px;
+  margin: 0 auto;
+  gap: 2rem;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.texto-bienvenida {
+  flex: 1 1 60%;
+}
+
+.imagen-bienvenida {
+  flex: 0 0 auto;
+}
+
+.imagen-bienvenida img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.grid-proyectos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.grid-proyectos a {
+  background: #333;
+  padding: 1rem;
+  border-radius: 12px;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.grid-proyectos a:hover {
+  background: #555;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: auto;
+}
+
+input, textarea {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+}
+
+button {
+  background-color: #444;
+  color: white;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #666;
+}
+
+footer {
+  background-color: #111;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.redes a {
+  margin: 0 1rem;
+  color: #ccc;
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+  }
+  .grid-proyectos {
+    grid-template-columns: 1fr;
+  }
+}

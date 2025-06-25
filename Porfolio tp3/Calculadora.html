@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora</title>
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    .calculadora {
+      max-width: 300px;
+      margin: 50px auto;
+      background: #222;
+      padding: 1rem;
+      border-radius: 16px;
+      text-align: center;
+    }
+    .calculadora input,
+    .calculadora button {
+      width: 60px;
+      margin: 5px;
+      padding: 10px;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+    <header>
+    <nav>
+      <ul>
+        <li><a href="Portfolio Tp3.html#inicio">Inicio</a></li>
+        <li><a href="Portfolio Tp3.html#sobremi">Sobre mí</a></li>
+        <li><a href="Portfolio Tp3.html#proyectos">Proyectos</a></li>
+        <li><a href="Portfolio Tp3.html#habilidades">Habilidades</a></li>
+        <li><a href="Portfolio Tp3.html#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="calculadora">
+    <input type="text" id="pantalla" disabled>
+    <br>
+    <div>
+      <button onclick="agregar('7')">7</button>
+      <button onclick="agregar('8')">8</button>
+      <button onclick="agregar('9')">9</button>
+      <button onclick="agregar('/')">/</button>
+    </div>
+    <div>
+      <button onclick="agregar('4')">4</button>
+      <button onclick="agregar('5')">5</button>
+      <button onclick="agregar('6')">6</button>
+      <button onclick="agregar('*')">*</button>
+    </div>
+    <div>
+      <button onclick="agregar('1')">1</button>
+      <button onclick="agregar('2')">2</button>
+      <button onclick="agregar('3')">3</button>
+      <button onclick="agregar('-')">-</button>
+    </div>
+    <div>
+      <button onclick="agregar('0')">0</button>
+      <button onclick="agregar('.')">.</button>
+      <button onclick="calcular()">=</button>
+      <button onclick="agregar('+')">+</button>
+    </div>
+    <div>
+      <button onclick="calcularRaiz()">√</button>
+      <button onclick="agregar('%')">%</button>
+      <button onclick="borrar()">C</button>
+    </div>
+  </div>
+  <script>
+    let pantalla = document.getElementById('pantalla');
+    function agregar(valor) {
+      pantalla.value += valor;
+    }
+    function calcular() {
+      try {
+        pantalla.value = eval(pantalla.value);
+      } catch {
+        pantalla.value = 'Error';
+      }
+    }
+    function calcularRaiz() {
+      pantalla.value = Math.sqrt(parseFloat(pantalla.value));
+    }
+    function borrar() {
+      pantalla.value = '';
+    }
+  </script>
+</body>
+</html>
