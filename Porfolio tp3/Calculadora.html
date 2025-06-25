@@ -1,30 +1,124 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Calculadora</title>
-  <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="estilos.css" />
   <style>
-    .calculadora {
-      max-width: 300px;
-      margin: 50px auto;
-      background: #222;
-      padding: 1rem;
-      border-radius: 16px;
+    
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      background-color: #1c1c1c;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body > *:not(footer) {
+      flex-shrink: 0;
+    }
+
+    main {
+      flex: 1 0 auto;
+      padding: 2rem;
+      max-width: 400px;
+      margin: 0 auto;
       text-align: center;
     }
-    .calculadora input,
+
+    header {
+      background-color: rgba(0, 0, 0, 0.9);
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #aaa;
+    }
+
+    
+    .descripcion {
+      margin-bottom: 30px;
+      font-size: 1.3rem;
+      line-height: 1.5;
+    }
+
+    
+    .calculadora {
+      background: #222;
+      padding: 1.5rem;
+      border-radius: 16px;
+      text-align: center;
+      max-width: 400px;
+      margin: 0 auto;
+      box-shadow: 0 0 15px rgba(0,0,0,0.7);
+    }
+    .calculadora input {
+      width: 100%;
+      padding: 15px;
+      font-size: 1.8rem;
+      border-radius: 10px;
+      border: none;
+      margin-bottom: 15px;
+      background-color: #333;
+      color: #fff;
+      text-align: right;
+    }
     .calculadora button {
-      width: 60px;
+      width: 70px;
+      height: 70px;
       margin: 5px;
-      padding: 10px;
-      font-size: 1.2rem;
+      padding: 0;
+      font-size: 1.5rem;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      background-color: #444;
+      color: white;
+      transition: background-color 0.3s;
+    }
+    .calculadora button:hover {
+      background-color: #666;
+    }
+
+    footer {
+      flex-shrink: 0;
+      background-color: #111;
+      text-align: center;
+      padding: 2rem;
+      color: #ccc;
+      margin-top: 2rem;
+    }
+
+    .redes a {
+      margin: 0 1rem;
+      color: #ffffff;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-    <header>
+  <header>
     <nav>
       <ul>
         <li><a href="Portfolio Tp3.html#inicio">Inicio</a></li>
@@ -32,45 +126,54 @@
         <li><a href="Portfolio Tp3.html#proyectos">Proyectos</a></li>
         <li><a href="Portfolio Tp3.html#habilidades">Habilidades</a></li>
         <li><a href="Portfolio Tp3.html#contacto">Contacto</a></li>
+        <li><a href="../index de paginas.html">Linktree</a></li>
       </ul>
     </nav>
   </header>
 
-  <div class="calculadora">
-    <input type="text" id="pantalla" disabled>
-    <br>
-    <div>
-      <button onclick="agregar('7')">7</button>
-      <button onclick="agregar('8')">8</button>
-      <button onclick="agregar('9')">9</button>
-      <button onclick="agregar('/')">/</button>
+  <main>
+    <div class="descripcion">
+      <h2>Calculadora básica</h2>
+      <p>Realiza operaciones aritméticas básicas como suma, resta, multiplicación y división.</p>
+      <p>Incluye funciones para calcular raíz cuadrada, porcentaje y limpiar la pantalla.</p>
     </div>
-    <div>
-      <button onclick="agregar('4')">4</button>
-      <button onclick="agregar('5')">5</button>
-      <button onclick="agregar('6')">6</button>
-      <button onclick="agregar('*')">*</button>
+
+    <div class="calculadora">
+      <input type="text" id="pantalla" disabled />
+      <div>
+        <button onclick="agregar('7')">7</button>
+        <button onclick="agregar('8')">8</button>
+        <button onclick="agregar('9')">9</button>
+        <button onclick="agregar('/')">/</button>
+      </div>
+      <div>
+        <button onclick="agregar('4')">4</button>
+        <button onclick="agregar('5')">5</button>
+        <button onclick="agregar('6')">6</button>
+        <button onclick="agregar('*')">*</button>
+      </div>
+      <div>
+        <button onclick="agregar('1')">1</button>
+        <button onclick="agregar('2')">2</button>
+        <button onclick="agregar('3')">3</button>
+        <button onclick="agregar('-')">-</button>
+      </div>
+      <div>
+        <button onclick="agregar('0')">0</button>
+        <button onclick="agregar('.')">.</button>
+        <button onclick="calcular()">=</button>
+        <button onclick="agregar('+')">+</button>
+      </div>
+      <div>
+        <button onclick="calcularRaiz()">√</button>
+        <button onclick="agregar('%')">%</button>
+        <button onclick="borrar()">C</button>
+      </div>
     </div>
-    <div>
-      <button onclick="agregar('1')">1</button>
-      <button onclick="agregar('2')">2</button>
-      <button onclick="agregar('3')">3</button>
-      <button onclick="agregar('-')">-</button>
-    </div>
-    <div>
-      <button onclick="agregar('0')">0</button>
-      <button onclick="agregar('.')">.</button>
-      <button onclick="calcular()">=</button>
-      <button onclick="agregar('+')">+</button>
-    </div>
-    <div>
-      <button onclick="calcularRaiz()">√</button>
-      <button onclick="agregar('%')">%</button>
-      <button onclick="borrar()">C</button>
-    </div>
-  </div>
+  </main>
+
   <script>
-    let pantalla = document.getElementById('pantalla');
+    const pantalla = document.getElementById('pantalla');
     function agregar(valor) {
       pantalla.value += valor;
     }
@@ -82,11 +185,26 @@
       }
     }
     function calcularRaiz() {
-      pantalla.value = Math.sqrt(parseFloat(pantalla.value));
+      const val = parseFloat(pantalla.value);
+      if (!isNaN(val)) {
+        pantalla.value = Math.sqrt(val);
+      } else {
+        pantalla.value = 'Error';
+      }
     }
     function borrar() {
       pantalla.value = '';
     }
   </script>
+
+  <footer>
+    <p>&copy; 2025 Ignacio Confalonieri. Diseño y Desarrollo Web</p>
+    <div class="redes">
+      <a href="https://github.com/NachoConfa" target="_blank">GitHub</a>
+      <a href="https://www.instagram.com/ignacioconfalonieri_/?hl=es-la" target="_blank">Instagram</a>
+      <a href="tel:+5491170326665">Whatsapp</a>
+      <a href="https://www.linkedin.com/in/ignacio-confalonieri-4078032b8/" target="_blank">LinkedIn</a>
+    </div>
+  </footer>
 </body>
 </html>
